@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Recipe Page</title>
+  <link rel="stylesheet" href="recipe.css">
+</head>
+<body>
+  <h1>Popular Dishes</h1>
+  <div class="grid">
+    <div class="card" onclick="toggleIngredients(this)">
+      <img src="PANCAKES.jpg" alt="Classic Pancakes" class="recipe-image">
+      <h2>Pancake</h2>
+      <p class="category">Breakfast</p>
+      <p class="price">75 peso</p>
+
+      <div class="ingredients" style="display:none;">
+        <strong>Ingredients:</strong>
+        <ul>
+          <li>Flour</li>
+          <li>Milk</li>
+          <li>Eggs</li>
+          <li>Sugar</li>
+          <li>Baking powder</li>
+        </ul>
+      </div>
+
+      <div class="instructions" style="display:none;">
+        <strong>Instructions:</strong>
+        <ol>
+          <li>Sift together flour, baking powder, sugar, and salt.</li>
+          <li>In another bowl, beat eggs and add milk.</li>
+          <li>Combine all ingredients, mix until smooth.</li>
+          <li>Heat a pan and pour batter to form pancakes.</li>
+          <li>Cook until golden brown on both sides. Serve warm.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleIngredients(this)">
+      <img src="HALO HALO.jpg" alt="Classic Halo-halo" class="recipe-image">
+      <h2>Halo-halo</h2>
+      <p class="category">Dessert</p>
+      <p class="price">95 peso</p>
+      <div class="ingredients" style="display:none;">
+        <strong>Ingredients:</strong>
+        <ul>
+          <li>Crushed ice</li>
+          <li>Milk</li>
+          <li>Leche flan</li>
+          <li>Sago</li>
+          <li>Ube jam</li>
+          <li>Sweet beans</li>
+        </ul>
+      </div>
+      <div class="instructions" style="display:none;">
+        <strong>Instructions:</strong>
+        <ol>
+          <li>Layer sweet beans, sago, nata de coco, and ube in a tall glass.</li>
+          <li>Add crushed ice on top.</li>
+          <li>Pour evaporated milk over the ice.</li>
+          <li>Top with leche flan and scoop of ube jam.</li>
+          <li>Mix well before eating for the best taste.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleIngredients(this)">
+      <img src="BISTEK.jpg" alt="Classic Bistek" class="recipe-image">
+      <h2>Bistek</h2>
+      <p class="category">Main Dish</p>
+      <p class="price">80 peso</p>
+      <div class="ingredients" style="display:none;">
+        <strong>Ingredients:</strong>
+        <ul>
+          <li>Beef</li>
+          <li>Soy sauce</li>
+          <li>Calamansi</li>
+          <li>Onion</li>
+          <li>Pepper</li>
+        </ul>
+      </div>
+      <div class="instructions" style="display:none;">
+        <strong>Instructions:</strong>
+        <ol>
+          <li>Marinate beef in soy sauce, calamansi juice, and pepper for 30 minutes.</li>
+          <li>Heat oil in a pan and fry onions until soft. Set aside.</li>
+          <li>Cook marinated beef in the same pan until tender.</li>
+          <li>Return onions to the pan and simmer for a few more minutes.</li>
+          <li>Serve hot with steamed rice.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleIngredients(card) {
+      
+      document.querySelectorAll('.card').forEach(function(otherCard) {
+        if (otherCard !== card) {
+          const ing = otherCard.querySelector('.ingredients');
+          const instr = otherCard.querySelector('.instructions');
+          if (ing) ing.style.display = 'none';
+          if (instr) instr.style.display = 'none';
+          otherCard.classList.remove('active');
+        }
+      });
+
+      const ingredient = card.querySelector('.ingredients');
+      const instruction = card.querySelector('.instructions');
+      const show = ingredient && ingredient.style.display === 'none';
+      if (ingredient) ingredient.style.display = show ? 'block' : 'none';
+      if (instruction) instruction.style.display = show ? 'block' : 'none';
+      if (show) {
+        card.classList.add('active');
+      } else {
+        card.classList.remove('active');
+      }
+    }
+  </script>
+  <footer> 
+        <p> &copy November 25 2025 </p>
+    </footer>
+</body>
+</html>
